@@ -1,50 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.andro/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="@dimen/activity_padding"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    >
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/enter_password"
-        android:textAppearance="@android:style/TextAppearance.Medium"/>
+        android:textAppearance="@android:style/TextAppearance.Medium"
+        android:padding="@dimen/text_view_padding"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        >
-    <TextView
-        android:id="@+id/text_result"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        tools:text="Result"
-        android:layout_weight="1"
-        android:textAppearance="@style/ResulTextApperance"
+        android:background="@drawable/result_border"
         android:layout_marginTop="@dimen/result_margin"
-        android:layout_marginBottom="@dimen/result_margin"
-        style="@style/ResultTextView" />
-    <ImageButton
-        android:id="@+id/button_copy_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_content_copy_black_24dp"
-        android:enabled = "false"
-        android:padding="@dimen/copy_button_padding"
-        />
+        >
+        <TextView
+            android:id="@+id/text_result"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="Result"
+            android:layout_weight="1"
+            android:textAppearance="@style/ResulTextApperance"
+
+            style="@style/ResultTextView" />
+        <ImageButton
+            android:id="@+id/button_copy_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_content_copy_black_24dp"
+            android:enabled = "false"
+            android:padding="@dimen/copy_button_padding"
+            android:theme="@style/AppTheme"
+            />
     </LinearLayout>
+    <ImageView
+        android:id="@+id/quality_image_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/image_quality_height"
+        android:src="@drawable/password_quality"
+        />
+
     <EditText
         android:id="@+id/edit_source"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
+        android:padding="@dimen/editText_padding"
 
         />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/new_password_generate_text"
+        android:padding="@dimen/text_view_padding"
+        android:textAppearance="@android:style/TextAppearance.Medium" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/result_border"
+        android:layout_marginVertical="@dimen/result_margin">
+        <TextView
+            android:id="@+id/text_generated"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="Result"
+            android:textAppearance="@style/ResulTextApperance"
+            android:layout_marginTop="@dimen/result_margin"
+            android:layout_toLeftOf="@id/button_copy_generated_password"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+
+            style="@style/ResultTextView" />
+        <ImageButton
+            android:id="@+id/button_copy_generated_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_content_copy_black_24dp"
+            android:enabled = "false"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:padding="@dimen/copy_button_padding"
+            android:theme="@style/AppTheme"
+            />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <CheckBox
+        android:id="@+id/check_caps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/check_caps"
+        android:layout_weight="1"
+        android:checked="true"/>
+
+
+    <CheckBox
+        android:id="@+id/check_digital"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/check_digital"
+        android:layout_weight="1"
+        android:checked="true"/>
+
+    <CheckBox
+        android:id="@+id/check_symbols"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/check_symbols"/>
+    </LinearLayout>
+    <SeekBar
+        android:id="@+id/seekbar_length_generated"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="6"
+        android:layout_marginVertical="@dimen/seekbar_margin"
+        />
+    <TextView
+        android:id="@+id/text_length_generated"
+        android:text="@string/text_length_generated_help"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="@dimen/editText_padding"
+        />
+
+
+    <Button
+        android:id="@+id/buton_generate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_generate_button"
+        android:theme="@style/AppTheme"
+        />
+
 
 </LinearLayout>
+</ScrollView>
